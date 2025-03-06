@@ -1,17 +1,18 @@
 {
-  "name": "taller5m",
+  "name": "taller5mj",
   "version": "1.0.0",
-  "main": "Src/index.js",
+  "main": "src/index.js",
   "module": "nodemon",
   "scripts": {
-    "test": "nodemon ./Src/index.js"
+    "test": "nodemon ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "mysql2": "^3.1.0" 
   },
   "description": ""
 }
