@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert User</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Insert User</h2>
+        <form id="insertUserForm">
+            <input type="number" id="ID_Usuario" placeholder="ID Usuario" required>
+            <input type="text" id="Nombre" placeholder="Nombre" required>
+            <button type="submit">Insert</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script>
+        document.getElementById('insertUserForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const ID_Usuario = document.getElementById('ID_Usuario').value;
+            const Nombre = document.getElementById('Nombre').value;
+            const response = await fetch('/basededatos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ID_Usuario, Nombre })
+            });
+            const result = await response.json();
+            document.getElementById('message').innerText = result.message;
+        });
+    </script>
+</body>
+</html>
